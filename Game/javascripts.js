@@ -42,7 +42,7 @@ window.addEventListener("load", () => {
 
 
 items.forEach((item) => {
-    item.addEventListener("mousedown", (e) => {
+    item.addEventListener("pointerdown", (e) => {
         activeItem = item;
 
         offsetX = e.clientX - item.offsetLeft;
@@ -51,7 +51,7 @@ items.forEach((item) => {
         item.style.backgroundColor = 'orange'
     });
 
-    document.addEventListener('mousemove', (e) => {
+    document.addEventListener('pointermove', (e) => {
         if (!activeItem) return;
 
         let x = e.clientX - offsetX;
@@ -68,7 +68,7 @@ items.forEach((item) => {
         activeItem.style.top = y + 'px';
     })
 
-    document.addEventListener("mouseup", () => {
+    document.addEventListener("pointerup", () => {
         if (activeItem) {
             activeItem.style.backgroundColor = "green";
             activeItem = null;
