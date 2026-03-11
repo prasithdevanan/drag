@@ -78,6 +78,11 @@ function arrageSkills() {
                 activeItem = null;
             }
         })
+
+        item.addEventListener("contextmenu", (e) => {
+            e.preventDefault();
+            popupRights(e);
+        })
     })
 
 };

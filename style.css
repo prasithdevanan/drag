@@ -92,3 +92,14 @@ body {
     padding: 4px;
     margin-bottom: 10px;
 }
+
+#popup-right {
+    display: none;
+    position: absolute;
+    min-width: auto !important;
+    z-index: 999;
+}
+
+#popup-right p {
+    width: fit-content !important;
+}

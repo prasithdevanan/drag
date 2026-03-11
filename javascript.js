@@ -4,6 +4,7 @@ const skillClose = document.getElementById("skill-close");
 const submitBtn = document.getElementById("btn-submit");
 const skillInput = document.getElementById("skillInput");
 const containers = document.querySelector(".playground");
+const popupRight = document.getElementById("popup-right");
 
 
 btnSkillsAdd.addEventListener('click', (e) => {
@@ -33,3 +34,22 @@ submitBtn.addEventListener("click", (e) => {
     }
 
 });
+
+
+function popupRights (e) {
+    popupRight.style.display = "flex";
+    popupRight.style.left = e.clientX + 'px';
+    popupRight.style.top = ((e.clientY + 20) + 'px');
+    console.log(e)
+};
+
+window.addEventListener("click", (e) => {
+    popupRight.style.display = "none";
+    console.log(e.button);
+})
+
+window.addEventListener("pointerdown", (e) => {
+    console.log(e.button);
+});
+
+
