@@ -12,8 +12,8 @@ function arrageSkills() {
     console.log(items)
     const startX = 20;
     const startY = 20;
-    const gap = 20;
-    const rowGap = 20;
+    const gap = 14;
+    const rowGap = 14;
 
 
     let currentX = startX;
