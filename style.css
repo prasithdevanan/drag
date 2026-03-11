@@ -36,6 +36,7 @@ body {
     position: absolute;
     user-select: none;
     z-index: 10;
+    touch-action: none;
 }
 
 .container-bg {
@@ -52,4 +53,5 @@ body {
 .container-bg p {
     font-size: 60px;
     font-variant:small-caps;
+
 }
