@@ -77,7 +77,8 @@ body {
     min-width: 300px;
     display: flex;
     flex-direction: column;
-    max-width: 50%;
+    max-width: 650px !important;
+    border-radius: 10px;
 }
 
 .btn-close {
