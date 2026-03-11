@@ -1,12 +1,15 @@
 const container = document.querySelector(".playground");
-const items = document.querySelectorAll(".content");
+
+
 
 let activeItem = null;
 let offsetX = 0;
 let offsetY = 0;
+// let items = document.querySelectorAll(".content");
 
-
-window.addEventListener("load", () => {
+function arrageSkills() {
+    const items = document.querySelectorAll(".content");
+    console.log(items)
     const startX = 20;
     const startY = 20;
     const gap = 20;
@@ -38,42 +41,45 @@ window.addEventListener("load", () => {
     });
 
 
-});
 
 
-items.forEach((item) => {
-    item.addEventListener("pointerdown", (e) => {
-        activeItem = item;
+    items.forEach((item) => {
+        item.addEventListener("pointerdown", (e) => {
+            activeItem = item;
 
-        offsetX = e.clientX - item.offsetLeft;
-        offsetY = e.clientY - item.offsetTop;
+            offsetX = e.clientX - item.offsetLeft;
+            offsetY = e.clientY - item.offsetTop;
 
-        item.style.backgroundColor = 'orange';
-        item.setPointerCapture(e.pointerId);
-        console.log(e.pointerId)
-    });
+            item.style.backgroundColor = 'orange';
+            item.setPointerCapture(e.pointerId);
+            console.log(e.pointerId)
+        });
 
-    document.addEventListener('pointermove', (e) => {
-        if (!activeItem) return;
+        document.addEventListener('pointermove', (e) => {
+            if (!activeItem) return;
 
-        let x = e.clientX - offsetX;
-        let y = e.clientY - offsetY;
+            let x = e.clientX - offsetX;
+            let y = e.clientY - offsetY;
 
-        const maxX = container.clientWidth - activeItem.offsetWidth;
-        const maxY = container.clientHeight - activeItem.offsetHeight;
-        console.log(Math.min(x, maxX))
-        x = Math.max(0, Math.min(maxX, x));
-        y = Math.max(0, Math.min(maxY, y))
+            const maxX = container.clientWidth - activeItem.offsetWidth;
+            const maxY = container.clientHeight - activeItem.offsetHeight;
+            console.log(Math.min(x, maxX))
+            x = Math.max(0, Math.min(maxX, x));
+            y = Math.max(0, Math.min(maxY, y))
 
 
-        activeItem.style.left = x + "px";
-        activeItem.style.top = y + 'px';
+            activeItem.style.left = x + "px";
+            activeItem.style.top = y + 'px';
+        })
+
+        document.addEventListener("pointerup", () => {
+            if (activeItem) {
+                activeItem.style.backgroundColor = "green";
+                activeItem = null;
+            }
+        })
     })
 
-    document.addEventListener("pointerup", () => {
-        if (activeItem) {
-            activeItem.style.backgroundColor = "green";
-            activeItem = null;
-        }
-    })
-})
+};
+
+window.addEventListener('load', arrageSkills)

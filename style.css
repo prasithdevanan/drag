@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
 
+
 * {
     padding: 0;
     margin: 0;
@@ -17,12 +18,14 @@ body {
     align-items: center;
     justify-content: center;
     height: 100vh;
-    font-family: "Archivo Black", sans-serif;
+    font-family: "Archivo Black", sans-serif !important;
     font-weight: 400;
     overflow: hidden;
+    flex-direction: column;
 }
 
 .playground {
+    max-width: 99%;
     width: 600px;
     height: 600px;
     position: relative;
@@ -53,7 +56,34 @@ body {
 
 .container-bg p {
     font-size: 60px;
-    font-variant:small-caps;
-
+    font-variant: small-caps;
 }
 
+.popup {
+    background: rgba(0, 0, 0, 0.333);
+    position: absolute;
+    z-index: 100;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+
+.popup-container {
+    background: white;
+    padding: 10px;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+}
+
+.btn-close {
+    cursor: pointer;
+    width: 30px !important;
+}
+
+.popup-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 4px;
+    margin-bottom: 10px;
+}
