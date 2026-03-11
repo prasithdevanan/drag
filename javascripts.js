@@ -48,7 +48,9 @@ items.forEach((item) => {
         offsetX = e.clientX - item.offsetLeft;
         offsetY = e.clientY - item.offsetTop;
 
-        item.style.backgroundColor = 'orange'
+        item.style.backgroundColor = 'orange';
+        item.setPointerCapture(e.pointerId);
+        console.log(e.pointerId)
     });
 
     document.addEventListener('pointermove', (e) => {
