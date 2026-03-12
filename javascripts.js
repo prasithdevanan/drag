@@ -82,8 +82,19 @@ function arrageSkills() {
         item.addEventListener("contextmenu", (e) => {
             e.preventDefault();
             popupRights(e);
+        });
+
+        item.addEventListener('pointerenter', () => {
+             item.style.border = '2px solid white';
+
+        });
+
+        item.addEventListener('pointerout', () => {
+            item.style.border = '2px solid transparent';
         })
-    })
+    });
+
+
 
 };
 

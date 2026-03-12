@@ -35,13 +35,22 @@ submitBtn.addEventListener("click", (e) => {
 
 });
 
+let itemContent = null;
 
 function popupRights (e) {
     popupRight.style.display = "flex";
     popupRight.style.left = e.clientX + 'px';
     popupRight.style.top = ((e.clientY + 20) + 'px');
-    console.log(e)
+    console.log(e);
+    itemContent = e.target;
 };
+
+popupRight.addEventListener("click", () => {
+    console.log(itemContent);
+    itemContent.remove();
+    arrageSkills();
+})
+
 
 window.addEventListener("click", (e) => {
     popupRight.style.display = "none";
