@@ -114,6 +114,7 @@ body {
 
 .popup-delete {
     background: red !important;
+    height: fit-content !important;
 }
 
 .skill-error {
