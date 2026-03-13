@@ -5,6 +5,7 @@ const submitBtn = document.getElementById("btn-submit");
 const skillInput = document.getElementById("skillInput");
 const containers = document.querySelector(".playground");
 const popupRight = document.getElementById("popup-right");
+const skillError = document.querySelector(".skill-error");
 
 
 btnSkillsAdd.addEventListener('click', (e) => {
@@ -12,16 +13,29 @@ btnSkillsAdd.addEventListener('click', (e) => {
     console.log("change")
 });
 
+document.addEventListener('keydown', (e) => {
+    //ctrl + T
+    if (e.ctrlKey && e.shiftKey && e.key === "S") {
+        e.preventDefault();
+        popUp.style.display = "flex";
+        console.log("ctrl + T")
+    };
+});
+
 
 skillClose.addEventListener("click", () => {
     popUp.style.display = "none";
+    skillError.style.display = 'none';
 });
+
+skillInput.addEventListener("keydown", () => {
+    skillError.style.display = "none";
+})
 
 submitBtn.addEventListener("click", (e) => {
     e.preventDefault();
 
     const newText = document.createElement('p');
-
     if (!skillInput.value == '') {
         newText.textContent = skillInput.value;
         newText.classList.add("content");
@@ -30,14 +44,14 @@ submitBtn.addEventListener("click", (e) => {
         skillInput.value = '';
         arrageSkills();
     } else {
-        alert("enter the skill")
+        skillError.style.display = 'block';
     }
 
 });
 
 let itemContent = null;
 
-function popupRights (e) {
+function popupRights(e) {
     popupRight.style.display = "flex";
     popupRight.style.left = e.clientX + 'px';
     popupRight.style.top = ((e.clientY + 20) + 'px');

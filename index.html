@@ -51,8 +51,13 @@
                 <span class=" btn-close" id="skill-close"></span>
             </div>
 
-            <form action="" class="d-flex flex-column gap-2 justify-content-center align-item-center">
-                <input type="text" placeholder="Enter you Skill" class="input p-1 w-75" id="skillInput" required>
+            <form action="" class="d-flex flex-column gap-2 justify-content-center align-items-center h-100">
+                <div class="d-flex flex-column w-50">
+                    <label for="skillInput">Skill</label>
+                    <input type="text" placeholder="Enter you Skill" class="input p-1 w-100 mb-2" id="skillInput" required>
+                    <p class="skill-error">Enter the Skill</p>
+                </div>
+
                 <button type="submit" class="btn btn-primary w-50" id="btn-submit">Submit</button>
             </form>
         </div>
